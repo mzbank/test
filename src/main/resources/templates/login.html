@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<h4 th:text = "${msg}" style="color : red;"></h4>
+<form method="post" action="/process">
+    <input type="text" name="name"></br>
+    <input type="password" name="password"></br>
+    <input type="submit" value="提交"></br>
+</form>
+</body>
+</html>

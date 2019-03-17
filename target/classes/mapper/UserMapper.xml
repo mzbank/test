@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace = "job.dao.UserMapper">
+    <select id="findByName" resultType="user">
+        SELECT * from user
+    </select>
+    <!--void addUser(@Param("users") List<User> users);-->
+    <!--第一种方法遍历values-->
+    <insert id="addUser">
+        insert into user(id, name, password)
+        values
+               <foreach collection="users" item="user" separator=",">
+                   (#{user.id},#{user.name},#{user.password})
+               </foreach>
+
+    </insert>
+    <select id="countUsers" resultType="int">
+        select count(id) from user
+    </select>
+    <!--第二种方法，遍历sql语句-->
+    <!--<insert id="addUser">-->
+        <!--<foreach collection="users" item="user" separator=";">-->
+            <!--insert into user (id, name, password) values (#{suer.id},#{user.name},#{user.password})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+</mapper>

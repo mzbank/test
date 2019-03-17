@@ -1,0 +1,2 @@
+classname = job.reflect.good.Student
+methodname = say
